@@ -1,0 +1,27 @@
+name: DL Text Classification CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install notebook runner
+        run: pip install nbconvert jupyter
+
+      - name: Run DL Notebook (CI check)
+        run: jupyter nbconvert --to notebook --execute Ashwin_DL_Final_Project.ipynb --output executed_output.ipynb
