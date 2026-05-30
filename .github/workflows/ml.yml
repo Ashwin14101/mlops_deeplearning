@@ -24,4 +24,4 @@ jobs:
         run: pip install nbconvert jupyter
 
       - name: Run DL Notebook (CI check)
-        run: jupyter nbconvert --to notebook --execute Ashwin_DL_Final__Project.ipynb --output executed_output.ipynb
+        run: jupyter nbconvert --to notebook --execute Student_Performance_Prediction_ML.ipynb --output executed_output.ipynb
